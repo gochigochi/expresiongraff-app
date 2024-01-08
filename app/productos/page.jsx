@@ -36,7 +36,7 @@ const ProductsPage = () => {
     }, [])
 
     return (
-        <section className="w-full flex flex-col justify-center items-start px-5">
+        <section className="w-full flex flex-col justify-center items-start">
             <ProductsGallery products={products} loading={loading} />
         </section>
     )
