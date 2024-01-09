@@ -18,7 +18,7 @@ const Header = () => {
             </nav>
             {
                 pathname !== "/" ?
-                <div className="flex items-center h-14 w-9/12 mx-auto mt-3 px-5">
+                <div className="flex items-center bg-red-100 rounded-full h-14 w-9/12 max-w-4xl mx-auto mt-3 px-5">
                     <Stepper />
                 </div> : null
             }

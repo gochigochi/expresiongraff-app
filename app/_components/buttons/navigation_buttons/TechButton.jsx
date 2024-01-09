@@ -1,13 +1,18 @@
 "use client"
 
-import { useRouter } from "next/navigation"
+import { createQueryString } from "@/app/_lib/createQueryString"
+import { useRouter, useSearchParams } from "next/navigation"
 
 const TechButton = ({ content, ...props }) => {
 
   const router = useRouter()
+  const searchParams = useSearchParams()
 
   const handleNavigation = () => {
-    router.push(`/productos/${content.id}`)
+
+    const queryString = createQueryString("tecnica", content.id, searchParams)
+
+    router.push(`/productos/${content.id}?${queryString}`)
   }
 
   return (

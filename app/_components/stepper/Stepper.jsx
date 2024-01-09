@@ -36,7 +36,7 @@ const Stepper = () => {
     return (
         <div className="relative w-full">
             <div className="absolute top-1/2 translate-y-2/4 w-full flex l-0">
-                <div className="w-3/4 mx-auto border-t-2 border-dashed border-color-gray-200"></div>
+                <div className="w-3/4 mx-auto border-t-2 border-dashed border-white"></div>
             </div>
             <div className="relative w-full flex">
                 {
@@ -52,8 +52,6 @@ const Stepper = () => {
                                         grid
                                         place-items-center
                                         rounded-full
-                                        shadow-md
-                                        shadow-gray-300
                                         ${index.current > item.id ? "bg-amber-200" : "bg-white"}
                                     `}
                                 >

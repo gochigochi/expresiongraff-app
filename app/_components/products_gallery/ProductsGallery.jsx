@@ -27,7 +27,7 @@ const ProductsGallery = ({ products, loading }) => {
             resizeObserver.current = new ResizeObserver(() => handleResize())
             resizeObserver.current.observe(swiperRef.current)
 
-            return () => resizeObserver.current?.disconnect()
+            return () => resizeObserver.current.disconnect()
         }
     }, [])
 

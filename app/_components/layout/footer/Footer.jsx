@@ -4,8 +4,8 @@ const Footer = () => {
 
     return (
         <footer className="w-full px-5">
-            <div className="flex h-8 max-w-screen-xl mx-auto justify-end">
-                <p>&#169; Expresiongraff, {date}. By Go.</p>
+            <div className="flex h-5 max-w-screen-xl mx-auto justify-end">
+                <p className="text-xs">&#169; Expresiongraff, {date} by diegoui.</p>
             </div>
         </footer>
     )

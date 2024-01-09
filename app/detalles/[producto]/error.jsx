@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import PrimaryButton from '../_components/buttons/PrimaryButton'
+import PrimaryButton from '@/app/_components/buttons/PrimaryButton'
 
 export default function Error({ error, reset }) {
     
@@ -10,7 +10,7 @@ export default function Error({ error, reset }) {
     }, [error])
 
     return (
-        <div className="min-h-screen grid place-items-center">
+        <div className="w-full grid place-items-center">
             <div>
                 <h2 className="text-center mb-1">Ocurrió un error.</h2>
                 <PrimaryButton onClick={() => reset()}>

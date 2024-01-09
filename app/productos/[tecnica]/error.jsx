@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import PrimaryButton from '../_components/buttons/PrimaryButton'
+import PrimaryButton from '@/app/_components/buttons/PrimaryButton'
 
 export default function Error({ error, reset }) {
     

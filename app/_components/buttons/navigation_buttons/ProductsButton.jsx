@@ -1,26 +1,16 @@
-import { createQueryString } from "@/app/_lib/createQueryString"
 import { useRouter, useSearchParams } from "next/navigation"
-import useStore from "@/app/_lib/store"
+import { createQueryString } from "@/app/_lib/createQueryString"
 
 const ProductsButton = ({ children, product, ...props }) => {
 
     const router = useRouter()
     const searchParams = useSearchParams()
-    const setProductData = useStore(state => state.setProductData)
 
     const handleNavigation = () => {
-        setProductData({ 
-            title: product.data.title,
-            image: product.data.img,
-            availablecolors: product.data.colores,
-            unitaryprice: product.data.price,
-        })
 
-        const slug = product.id.replace(/[^a-z0-9_]+/gi, '-').replace(/^-|-$/g, '').toLowerCase()
+        const queryString = createQueryString(null, null, searchParams)
 
-        const queryString = createQueryString("producto", slug, searchParams)
-
-        router.push("/detalles?" + queryString)
+        router.push(`/detalles/${product.id}?${queryString}`)
     }
 
     return (
@@ -37,8 +27,8 @@ const ProductsButton = ({ children, product, ...props }) => {
             pl-1
             pb-1
             select-none
-        "
-        {...props}
+            "
+            {...props}
         >
             {children}
         </div>
