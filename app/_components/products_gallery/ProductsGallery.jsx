@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useRef, useState } from 'react'
 import Card from './Card'
 import Buttons from './Buttons'

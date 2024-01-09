@@ -31,7 +31,7 @@ const Stepper = () => {
     const pathname = usePathname()
     const index = useRef()
 
-    index.current = content.findIndex(el => el.path === pathname) + 1
+    index.current = content.findIndex(el => pathname.includes(el.path)) + 1
 
     return (
         <div className="relative w-full">
