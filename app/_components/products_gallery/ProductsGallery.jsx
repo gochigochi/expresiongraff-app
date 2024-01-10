@@ -1,6 +1,8 @@
 "use client"
 
 import { useEffect, useRef, useState } from 'react'
+import useAnimatePresence from '@/app/_hooks/useAnimatePresence'
+import { AnimatePresence } from 'framer-motion'
 import Card from './Card'
 import Buttons from './Buttons'
 
@@ -11,13 +13,14 @@ const ProductsGallery = ({ products, loading }) => {
     const resizeObserver = useRef()
     const [cardWidth, setCardWidth] = useState()
     const [scrolled, setScrolled] = useState(0)
+    const { show, setShow } = useAnimatePresence()
 
     const handleResize = () => {
         if (products) setCardWidth(swiperRef?.current.children[0].offsetWidth)
     }
 
     useEffect(() => {
-        if (products) setCardWidth(swiperRef.current.children[0].offsetWidth)
+        if (products && show) setCardWidth(swiperRef.current.children[0].offsetWidth)
     }, [products])
 
     useEffect(() => {
@@ -41,6 +44,8 @@ const ProductsGallery = ({ products, loading }) => {
     //     })
     // }, [scrolled])
 
+    console.log(show)
+
     return (
         <div ref={containerRef} className="relative flex flex-col w-full">
             <div
@@ -54,9 +59,16 @@ const ProductsGallery = ({ products, loading }) => {
                 snap-mandatory
                 "
             >
-                {products?.map(product => {
-                    return <Card key={product.id} product={product} />
-                })}
+                <AnimatePresence>
+                    {
+                        show ?
+                        <>
+                            {products?.map(product => {
+                                return <Card key={product.id} product={product} setShow={setShow} />
+                            })}
+                        </> : null
+                    }
+                </AnimatePresence>
             </div>
             <Buttons swiperRef={swiperRef} cardWidth={cardWidth} setScrolled={setScrolled} scrolled={scrolled}/>
         </div>

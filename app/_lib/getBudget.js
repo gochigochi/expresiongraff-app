@@ -383,5 +383,5 @@ export const getBudget = (selected) => {
         }
     }
 
-    return precioLogo
+    return precioLogo + selected.precioPrenda
 }

@@ -1,4 +1,7 @@
-import Image from 'next/image'
+"use client"
+
+import { AnimatePresence } from 'framer-motion'
+import useAnimatePresence from '../_hooks/useAnimatePresence'
 import TechButton from '../_components/buttons/navigation_buttons/TechButton'
 
 const tecs = [
@@ -32,12 +35,18 @@ const tecs = [
 ]
 
 export default function Tech() {
+
+  const { show, setShow } = useAnimatePresence()
+
   return (
     <section className="flex w-full flex-col items-center justify-center px-24">
       <div className="flex w-full gap-x-3 justify-center">
-        {
-          tecs.map(tec => <TechButton key={tec.id} content={tec} />)
-        }
+        <AnimatePresence>
+          {
+            show ? 
+            tecs.map(tec => <TechButton key={tec.id} content={tec} setShow={setShow} />) : null
+          }
+        </AnimatePresence>
       </div>
     </section>
   )

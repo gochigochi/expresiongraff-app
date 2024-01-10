@@ -1,17 +1,15 @@
 "use client"
 
-import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import LandingButton from './_components/buttons/navigation_buttons/LandingButton'
+import useAnimatePresence from './_hooks/useAnimatepresence'
 
 export default function Home() {
 
-  const [show, setShow] = useState(false)
-
-  useEffect(() => setShow(true), [])
+  const { show, setShow } = useAnimatePresence()
 
   return (
-    <section className="flex">
+    <section className="flex grow">
       <div className="w-1/2 flex justify-center items-center">
         <div className="flex-col">
           <AnimatePresence mode='wait'>

@@ -16,13 +16,8 @@ const content = [
     },
     {
         id: 3,
-        title: "Detalles",
+        title: "Detalles y presupuesto",
         path: "/detalles",
-    },
-    {
-        id: 4,
-        title: "Presupuesto",
-        path: "/presupuesto",
     },
 ]
 
@@ -38,27 +33,38 @@ const Stepper = () => {
             <div className="absolute top-1/2 translate-y-2/4 w-full flex l-0">
                 <div className="w-3/4 mx-auto border-t-2 border-dashed border-white"></div>
             </div>
-            <div className="relative w-full flex">
+            <div className="relative w-full flex bg-yellow-100 rounded-full">
                 {
                     content.map(item => {
                         return (
-                            <div key={item.id} className="relative flex flex-auto  justify-center w-11/12  mx-auto">
+                            <div
+                                key={item.id}
+                                className="
+                                relative 
+                                flex 
+                                flex-auto  
+                                justify-center 
+                                w-11/12  
+                                mx-auto
+                                "
+                            >
                                 <div
                                     className={`
                                         bg-white
                                         text-xs
-                                        w-10
+                                        py-2
+                                        px-4
                                         h-10
-                                        grid
-                                        place-items-center
+                                        flex
+                                        items-center
                                         rounded-full
                                         ${index.current > item.id ? "bg-amber-200" : "bg-white"}
                                     `}
                                 >
-                                {item.id}
+                                    <span className={`mr-2 ${index.current >= item.id ? "" : "text-gray-300"}`}>{item.id}</span>
+                                    <span className={`text-xs ${index.current >= item.id ? "" : "text-gray-300"}`}>{item.title}</span>
                                 </div>
-                                <p
-                                    className={`text-xs absolute -bottom-8 ${index.current >= item.id ? "" : "text-gray-300"}`}>{item.title}</p>
+
                             </div>
                         )
                     })

@@ -1,13 +1,26 @@
 import { memo } from "react"
 import FieldSet from "./fieldset/FieldSet"
-import { formatColors } from "@/app/_lib/formatColors"
+import { toHex } from "@/app/_lib/formatColors"
 
 const Customization = ({ product, selected, handleFormChange }) => {
     return (
-        <form className="flex flex-col gap-2 items-center grow p-7 rounded-2xl border border-slate-200">
+        <form
+            className="
+            flex 
+            flex-col 
+            grow 
+            justify-evenly
+            gap-2 
+            items-center 
+            px-7 
+            rounded-2xl 
+            border 
+            border-slate-200
+            "
+        >
             <FieldSet legend="Color">
                 {
-                    formatColors(product.colores).map(color => {
+                    toHex(product.colores).map(color => {
                         return (
                             <label
                                 key={color.hex}
@@ -18,7 +31,7 @@ const Customization = ({ product, selected, handleFormChange }) => {
                                     inline-block 
                                     cursor-pointer
                                     ${color.class} 
-                                    ${selected.color === color.hex && "outline outline-offset-2 outline-slate-300"}
+                                    ${selected.color === color.hex && "outline outline-offset-2 outline-sky-400"}
                                     `}
                             >
                                 <input
@@ -54,7 +67,7 @@ const Customization = ({ product, selected, handleFormChange }) => {
                                         text-sm 
                                         hover:bg-gray-50 
                                         cursor-pointer
-                                        ${selected.qty === item.value && "outline outline-offset-2 outline-slate-300"}
+                                        ${selected.qty === item.value && "outline outline-offset-2 outline-sky-400"}
                                     `}>
                                 <input
                                     type="radio"
@@ -74,7 +87,7 @@ const Customization = ({ product, selected, handleFormChange }) => {
                     [
                         { id: "Frente", value: "frente" },
                         { id: "Dorso", value: "dorso" },
-                        { id: "Frent y dorso", value: "ambos" },
+                        { id: "Frente y dorso", value: "ambos" },
                     ].map(item => {
                         return (
                             <label
@@ -89,7 +102,7 @@ const Customization = ({ product, selected, handleFormChange }) => {
                                         text-sm 
                                         hover:bg-gray-50 
                                         cursor-pointer
-                                        ${selected.position === item.value && "outline outline-offset-2 outline-slate-300"}
+                                        ${selected.position === item.value && "outline outline-offset-2 outline-sky-400"}
                                     `}>
                                 <input
                                     type="radio"
@@ -124,7 +137,7 @@ const Customization = ({ product, selected, handleFormChange }) => {
                                         text-sm 
                                         hover:bg-gray-50 
                                         cursor-pointer
-                                        ${selected.size === item.value && "outline outline-offset-2 outline-slate-300"}
+                                        ${selected.size === item.value && "outline outline-offset-2 outline-sky-400"}
                                     `}>
                                 <input
                                     type="radio"

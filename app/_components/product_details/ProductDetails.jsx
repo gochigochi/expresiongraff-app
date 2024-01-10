@@ -13,17 +13,8 @@ const ProductDetails = ({ product }) => {
     })
 
     return (
-        <section className="w-full flex pt-8 gap-5">
-            <div className="flex flex-col items-center justify-between w-1/2">
-                <div className="grow flex max-h-96 items-center justify-center py-2">
-                    <img
-                        src={product.img}
-                        alt={product.title}
-                        className="w-auto h-full"
-                    />
-                </div>
-                <Summary />
-            </div>
+        <section className="w-full flex gap-4">
+            <Summary product={product} selected={selected} />
             <Customization product={product} selected={selected} handleFormChange={handleFormChange} />
         </section>
     )
