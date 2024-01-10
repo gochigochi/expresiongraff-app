@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from 'framer-motion'
 import LandingButton from './_components/buttons/navigation_buttons/LandingButton'
-import useAnimatePresence from './_hooks/useAnimatepresence'
+import useAnimatePresence from './_hooks/useAnimatePresence'
 
 export default function Home() {
 
