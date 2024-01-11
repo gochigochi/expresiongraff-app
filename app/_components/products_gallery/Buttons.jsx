@@ -17,6 +17,8 @@ const Buttons = ({ swiperRef, cardWidth, setScrolled, scrolled }) => {
         <div>
             <button
             className="
+            hidden
+            md:block
             absolute
             top-1/2
             left-1
@@ -36,6 +38,8 @@ const Buttons = ({ swiperRef, cardWidth, setScrolled, scrolled }) => {
             </button>
             <button
             className="
+            hidden
+            md:block
             absolute
             top-1/2
             right-1

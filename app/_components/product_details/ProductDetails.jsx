@@ -13,7 +13,7 @@ const ProductDetails = ({ product }) => {
     })
 
     return (
-        <section className="w-full flex gap-4">
+        <section className="w-full flex flex-col-reverse sm:flex-row gap-4">
             <Summary product={product} selected={selected} />
             <Customization product={product} selected={selected} handleFormChange={handleFormChange} />
         </section>

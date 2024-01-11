@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -6,9 +8,10 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    letterSpacing: {
-      
-    }
+    screens: {
+      'xs': '400px',
+      ...defaultTheme.screens,
+    },
   },
   plugins: [
     require('tailwind-scrollbar-hide'),

@@ -62,15 +62,20 @@ const ProductsGallery = ({ products, loading }) => {
                 <AnimatePresence>
                     {
                         show ?
-                        <>
-                            {products?.map(product => {
-                                return <Card key={product.id} product={product} setShow={setShow} />
-                            })}
-                        </> : null
+                            <>
+                                {products?.map(product => {
+                                    return <Card key={product.id} product={product} setShow={setShow} />
+                                })}
+                            </> : null
                     }
                 </AnimatePresence>
             </div>
-            <Buttons swiperRef={swiperRef} cardWidth={cardWidth} setScrolled={setScrolled} scrolled={scrolled}/>
+            <AnimatePresence>
+                {
+                    show ?
+                    <Buttons swiperRef={swiperRef} cardWidth={cardWidth} setScrolled={setScrolled} scrolled={scrolled} /> : null
+                }
+            </AnimatePresence>
         </div>
     )
 }

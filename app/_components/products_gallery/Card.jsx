@@ -17,6 +17,8 @@ const Card = ({ product, index, setShow, ...props }) => {
         }, 400)
     }
 
+    console.log(product)
+
     return (
         <motion.div
             onClick={handleNavigation}
@@ -24,7 +26,8 @@ const Card = ({ product, index, setShow, ...props }) => {
             relative
             grow-1 
             shrink-0 
-            basis-[32.9%]
+            basis-[16rem]
+            md:basis-[32.9%]
             my-4
             mr-[0.4rem]
             snap-start
@@ -38,18 +41,20 @@ const Card = ({ product, index, setShow, ...props }) => {
             exit={{ opacity: 0, y: -20, transition: { duration: .2 } }}
             {...props}
         >
-            <div 
-            className="
+            <div
+                className="
             relative
             p-6
             h-[25rem]
-            shadow-md
-            shadow-gray-300
-            rounded-xl
+            rounded-2xl 
             border 
-            border-inherit
+            border-slate-200
+            rounded-xl
             overflow-hidden
             cursor-pointer
+            flex
+            flex-col
+            justify-between
             "
             >
                 <h2 className="relative text-4xl z-10">{product.data.title}</h2>
@@ -62,8 +67,49 @@ const Card = ({ product, index, setShow, ...props }) => {
                     top-20
                     left-16
                     object-contain
+                    mix-blend-multiply
                     "
                 />
+                <div>
+                    {
+                        product.data.tecnica.map(tech => {
+                            return (
+                                <div
+                                    className="
+                                    relative
+                                    index-100
+                                    w-fit
+                                    px-4
+                                    py-[.2rem]
+                                    mt-[.1rem]
+                                    text-xs
+                                    rounded-full
+                                    bg-sky-300
+                                    "
+                                >
+                                    {tech}
+                                </div>
+                            )
+                        }
+                        )
+
+                    }
+                    <div
+                        className="
+                        relative
+                        index-100
+                        w-fit
+                        px-4
+                        py-[.2rem]
+                        mt-[.1rem]
+                        text-xs
+                        rounded-full
+                        bg-gray-100
+                        "
+                    >
+                        varios colores
+                    </div>
+                </div>
             </div>
         </motion.div>
     )

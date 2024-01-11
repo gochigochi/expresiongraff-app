@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`
-      flex flex-col overflow-hidden min-h-screen
+      flex flex-col md:overflow-hidden min-h-screen
       ${roboto.className}
       `}>
         <Header />

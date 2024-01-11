@@ -6,7 +6,7 @@ import TechButton from '../_components/buttons/navigation_buttons/TechButton'
 
 const tecs = [
   {
-    // img: bordadoIcon,
+    img: "/bordado.jpg",
     id: "bordado",
     title: "Bordado",
     properties: [
@@ -15,7 +15,7 @@ const tecs = [
     ]
   },
   {
-    // img: serigrafiaIcon,
+    img: "/estampado.jpg",
     id: "estampado",
     title: "Estampado",
     properties: [
@@ -24,7 +24,7 @@ const tecs = [
     ]
   },
   {
-    // img: sublimacionIcon,
+    img: "/sublimado.jpg",
     id: "sublimado",
     title: "Sublimado",
     properties: [
@@ -39,8 +39,8 @@ export default function Tech() {
   const { show, setShow } = useAnimatePresence()
 
   return (
-    <section className="flex w-full flex-col items-center justify-center px-24">
-      <div className="flex w-full gap-x-3 justify-center">
+    <section className="flex w-full items-center justify-center">
+      <div className="flex flex-col md:flex-row w-full gap-x-3 justify-center items-center mt-4 md:mt-0">
         <AnimatePresence>
           {
             show ? 

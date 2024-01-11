@@ -9,13 +9,13 @@ const Customization = ({ product, selected, handleFormChange }) => {
             flex 
             flex-col 
             grow 
-            justify-evenly
-            gap-2 
+            gap-10
             items-center 
             px-7 
             rounded-2xl 
             border 
             border-slate-200
+            p-5
             "
         >
             <FieldSet legend="Color">
@@ -58,7 +58,8 @@ const Customization = ({ product, selected, handleFormChange }) => {
                             <label
                                 key={item.id}
                                 className={`
-                                        flex 
+                                        flex
+                                        flex-basis-12
                                         items-center 
                                         justify-center 
                                         rounded-md border 

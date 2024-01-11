@@ -5,6 +5,7 @@ import { formatPosition } from '@/app/_lib/formatPosition'
 import { formatSize } from '@/app/_lib/formatSize'
 import { formatQty } from '@/app/_lib/formatQty'
 import { getBudget } from '@/app/_lib/getBudget'
+import ContactButton from '../contact_button/ContactButton'
 
 const Summary = ({ product, selected }) => {
 
@@ -31,40 +32,58 @@ const Summary = ({ product, selected }) => {
   }, [selected])
 
   return (
-    <div className="w-[40%] flex gap-5 h-fit bg-slate-50 p-5 rounded-2xl">
+    <div
+      className="
+      w-full 
+      sm:w-[40%]  
+      shadow 
+      shadow-lg 
+      shadow-slate-200 
+      sm:shadow-none 
+      flex 
+      md:flex-col 
+      lg:flex-row 
+      gap-5 
+      h-fit 
+      bg-slate-50 
+      p-5 
+      rounded-2xl
+      "
+    >
       <img
         src={product.img}
         alt={product.title}
-        className="w-24 h-24 overflow-hidden rounded-md object-cover"
+        className="w-24 h-24 hidden md:block overflow-hidden rounded-md object-cover"
       />
       <div className="grow">
-        <h2 className="text-2xl">{product.title}</h2>
+        <h2 className="font-bold sm:text-2xl">{product.title}</h2>
         <dl className="py-2">
           <div className="flex justify-between pt-3 mt-3">
-            <dt className="text-gray-500">Técnica</dt>
-            <dd className="capitalize">{tech}</dd>
+            <dt className="text-gray-500 text-sm sm:text-base">Técnica</dt>
+            <dd className="capitalize text-sm sm:text-base">{tech}</dd>
           </div>
           <div className="flex justify-between pt-3 mt-3 border-t border-slate-300">
-            <dt className="text-gray-500">Color</dt>
-            <dd>{fromHexToColorName(selected.color)}</dd>
+            <dt className="text-sm sm:text-base text-gray-500">Color</dt>
+            <dd className="text-sm sm:text-base">{fromHexToColorName(selected.color)}</dd>
           </div>
           <div className="flex justify-between pt-3 mt-3 border-t border-slate-300">
-            <dt className="text-gray-500">Ubicacion</dt>
-            <dd>{formatPosition(selected.position)}</dd>
+            <dt className="text-sm sm:text-base text-gray-500">Ubicacion</dt>
+            <dd className="text-sm sm:text-base">{formatPosition(selected.position)}</dd>
           </div>
           <div className="flex justify-between pt-3 mt-3 border-t border-slate-300">
-            <dt className="text-gray-500">Logo</dt>
-            <dd>{formatSize(selected.size)}</dd>
+            <dt className="text-sm sm:text-base text-gray-500">Logo</dt>
+            <dd className="text-sm sm:text-base">{formatSize(selected.size)}</dd>
           </div>
           <div className="flex justify-between pt-3 mt-3 border-t border-slate-300">
-            <dt className="text-gray-500">Cantidad</dt>
-            <dd>{formatQty(selected.qty)}</dd>
+            <dt className="text-sm sm:text-base text-gray-500">Cantidad</dt>
+            <dd className="text-sm sm:text-base">{formatQty(selected.qty)}</dd>
           </div>
           <div className="flex justify-between pt-3 mt-3 border-t border-slate-300">
             <dt className="font-bold">Total</dt>
             <dd className="font-bold">$ {total}</dd>
           </div>
         </dl>
+        <ContactButton />
       </div>
     </div>
   )
