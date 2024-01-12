@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import Stepper from "../../stepper/Stepper"
 import { usePathname } from "next/navigation"
 import ContactMenu from "../../contact_menu/ContactMenu"
@@ -12,19 +13,20 @@ const Header = () => {
     return (
         <header className="w-full">
             <nav className="flex h-14 max-w-screen-xl justify-between items-center mx-auto mt-2 px-5">
-                <div className="text-xl">
+                <div className="relative w-52 h-12">
                     <Link href="/">
-                        <img src="/exg-logo.svg" alt="" className="w-auto h-12" />
+                        <Image src="/logo.svg" alt="" className="w-auto h-12" fill />
+                        {/* // <img src="/exg-logo.svg" alt="" className="w-auto h-12" /> */}
                     </Link>
                 </div>
                 <ContactMenu />
             </nav>
-            {/* {
+            {
                 pathname !== "/" ?
-                    <div className="flex items-center h-14 w-9/12 max-w-4xl">
+                    <div className="flex items-center h-14 w-9/12 max-w-4xl mx-auto">
                         <Stepper />
                     </div> : null
-            } */}
+            }
         </header>
     )
 }

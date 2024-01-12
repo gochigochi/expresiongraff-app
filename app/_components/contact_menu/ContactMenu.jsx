@@ -1,14 +1,19 @@
-import React from 'react'
+import { useState } from 'react'
+import { AnimatePresence } from 'framer-motion'
+import Button from './Button'
+import Menu from './Menu'
 
 const ContactMenu = () => {
+
+    const [show, setShow] = useState(false)
+
     return (
-        <>
-            <div className="cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#38BDF8" className="w-8 h-8">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
-                </svg>
-            </div>
-        </>
+        <div className="relative">
+            <Button onClick={() => setShow(!show)} />
+            <AnimatePresence>
+                {show ? <Menu setShow={setShow} /> : null}
+            </AnimatePresence>
+        </div>
     )
 }
 

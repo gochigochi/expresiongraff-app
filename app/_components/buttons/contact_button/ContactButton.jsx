@@ -3,7 +3,7 @@ import React from 'react'
 const ContactButton = () => {
     return (
         <a
-            className="w-full px-2 py-4 bg-lime-400 rounded-full flex flex-row divide-x hover:bg-lime-500 mt-6"
+            className="w-full px-2 py-4 bg-lime-400 rounded-full flex flex-row divide-x hover:bg-lime-500 mt-6 transition-colors"
             href={`https://api.whatsapp.com/send?phone=91170543029&amp;text=Hola.`}
             target="_blank"
             rel="noopener noreferrer"

@@ -5,7 +5,7 @@ import { formatPosition } from '@/app/_lib/formatPosition'
 import { formatSize } from '@/app/_lib/formatSize'
 import { formatQty } from '@/app/_lib/formatQty'
 import { getBudget } from '@/app/_lib/getBudget'
-import ContactButton from '../contact_button/ContactButton'
+import ContactButton from '../../buttons/contact_button/ContactButton'
 
 const Summary = ({ product, selected }) => {
 
@@ -48,6 +48,8 @@ const Summary = ({ product, selected }) => {
       bg-slate-50 
       p-5 
       rounded-2xl
+      mb-4
+      sm:mb-0
       "
     >
       <img

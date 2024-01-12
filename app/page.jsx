@@ -10,15 +10,15 @@ export default function Home() {
 
   return (
     <section className="flex grow">
-      <div className="w-1/2 flex justify-center items-center">
-        <div className="flex-col">
+      <div className="w-full sm:w-1/2 flex justify-center items-center">
+        <div className="relative bottom-6 sm:bottom-0">
           <AnimatePresence mode='wait'>
             {
               show ?
                 <>
                   <motion.h1
                     key="copy"
-                    className="text-5xl mb-4"
+                    className="text-5xl mb-4 select-none"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0, transition: { duration: .4 } }}
                     exit={{ opacity: 0, y: -10, transition: { duration: .2 } }}
@@ -31,7 +31,7 @@ export default function Home() {
           </AnimatePresence>
         </div>
       </div>
-      <div className="w-1/2">
+      <div className="absolute sm:relative w-1/2">
             {/* THREE JS */}
       </div>
     </section>

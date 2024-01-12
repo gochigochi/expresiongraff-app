@@ -1,6 +1,6 @@
 "use client"
 
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import useAnimatePresence from '../_hooks/useAnimatePresence'
 import TechButton from '../_components/buttons/navigation_buttons/TechButton'
 
@@ -39,15 +39,37 @@ export default function Tech() {
   const { show, setShow } = useAnimatePresence()
 
   return (
-    <section className="flex w-full items-center justify-center">
-      <div className="flex flex-col md:flex-row w-full gap-x-3 justify-center items-center mt-4 md:mt-0">
-        <AnimatePresence>
-          {
-            show ? 
-            tecs.map(tec => <TechButton key={tec.id} content={tec} setShow={setShow} />) : null
-          }
-        </AnimatePresence>
-      </div>
-    </section>
+    <AnimatePresence>
+      {
+        show ?
+          <section 
+            className="
+            flex w-full 
+            mt-4
+            sm:mt-0 
+            items-center 
+            justify-start 
+            sm:justify-center 
+            flex-col 
+            gap-0
+            sm:gap-8
+            "
+          >
+            <motion.h2
+              className="text-2xl"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0, transition: { duration: .4 } }}
+              exit={{ opacity: 0, y: -10, transition: { duration: .2 } }}
+            >
+              Seleccione una técnica
+            </motion.h2>
+            <div className="flex flex-col md:flex-row w-full gap-x-3 justify-center items-center mt-4 md:mt-0">
+              {
+                tecs.map(tec => <TechButton key={tec.id} content={tec} setShow={setShow} />)
+              }
+            </div>
+          </section> : null
+      }
+    </AnimatePresence>
   )
 }

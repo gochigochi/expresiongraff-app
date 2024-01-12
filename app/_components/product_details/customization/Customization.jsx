@@ -9,16 +9,18 @@ const Customization = ({ product, selected, handleFormChange }) => {
             flex 
             flex-col 
             grow 
-            gap-10
+            gap-5
+            sm:gap-10
             items-center 
             px-7 
             rounded-2xl 
             border 
             border-slate-200
-            p-5
+            pt-5
             "
         >
-            <FieldSet legend="Color">
+            <h2 className="w-full font-bold sm:hidden">Seleccione los detalles</h2>
+            <FieldSet legend="Color" note={<p className="absolute bottom-1 left-0 text-xs">*consultar por otros colores</p>}>
                 {
                     toHex(product.colores).map(color => {
                         return (
@@ -83,7 +85,7 @@ const Customization = ({ product, selected, handleFormChange }) => {
                     })
                 }
             </FieldSet>
-            <FieldSet legend="Posición del logo">
+            <FieldSet legend="Posición del logo" note={<p className="absolute bottom-1 left-0 text-xs">*frente: logo chico, dorso: logo grande</p>}>
                 {
                     [
                         { id: "Frente", value: "frente" },

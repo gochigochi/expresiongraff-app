@@ -17,8 +17,6 @@ const Card = ({ product, index, setShow, ...props }) => {
         }, 400)
     }
 
-    console.log(product)
-
     return (
         <motion.div
             onClick={handleNavigation}
@@ -45,7 +43,8 @@ const Card = ({ product, index, setShow, ...props }) => {
                 className="
             relative
             p-6
-            h-[25rem]
+            h-[28rem]
+            sm:h-[25rem]
             rounded-2xl 
             border 
             border-slate-200

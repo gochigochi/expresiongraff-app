@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import useAnimatePresence from '@/app/_hooks/useAnimatePresence'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import Card from './Card'
 import Buttons from './Buttons'
 
@@ -34,49 +34,65 @@ const ProductsGallery = ({ products, loading }) => {
         }
     }, [])
 
-    // useEffect(() => {
-    //     console.table({
-    //         scrolled,
-    //         container: containerRef.current.scrollWidth,
-    //         swiper: swiperRef.current.scrollLeft,
-    //         swiperWidth: swiperRef.current.offsetWidth,
-    //         swiperScrollWidth: swiperRef.current.scrollWidth
-    //     })
-    // }, [scrolled])
-
-    console.log(show)
-
     return (
-        <div ref={containerRef} className="relative flex flex-col w-full">
-            <div
-                ref={swiperRef}
-                className="
-                relative
-                flex 
-                scrollbar-hide
-                overflow-auto
-                snap-x
-                snap-mandatory
-                "
-            >
-                <AnimatePresence>
-                    {
-                        show ?
-                            <>
-                                {products?.map(product => {
-                                    return <Card key={product.id} product={product} setShow={setShow} />
-                                })}
-                            </> : null
-                    }
-                </AnimatePresence>
-            </div>
+        <section
+            className="
+            w-full 
+            flex 
+            flex-col 
+            mt-4 
+            sm:mt-0 
+            justify-start 
+            sm:justify-center 
+            items-center
+            gap-0
+            sm:gap-8
+            "
+        >
             <AnimatePresence>
                 {
                     show ?
-                    <Buttons swiperRef={swiperRef} cardWidth={cardWidth} setScrolled={setScrolled} scrolled={scrolled} /> : null
+                        <motion.h2
+                            className="text-2xl"
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0, transition: { duration: .4 } }}
+                            exit={{ opacity: 0, y: -10, transition: { duration: .2 } }}
+                        >
+                            Seleccione una prenda
+                        </motion.h2> : null
                 }
             </AnimatePresence>
-        </div>
+            <div ref={containerRef} className="relative flex flex-col w-full">
+                <div
+                    ref={swiperRef}
+                    className="
+                    relative
+                    flex 
+                    scrollbar-hide
+                    overflow-auto
+                    snap-x
+                    snap-mandatory
+                    "
+                >
+                    <AnimatePresence>
+                        {
+                            show ?
+                                <>
+                                    {products?.map(product => {
+                                        return <Card key={product.id} product={product} setShow={setShow} />
+                                    })}
+                                </> : null
+                        }
+                    </AnimatePresence>
+                </div>
+                <AnimatePresence>
+                    {
+                        show ?
+                            <Buttons swiperRef={swiperRef} cardWidth={cardWidth} setScrolled={setScrolled} scrolled={scrolled} /> : null
+                    }
+                </AnimatePresence>
+            </div>
+        </section>
     )
 }
 

@@ -18,11 +18,7 @@ const ProductsPage = async ({ params }) => {
 
     const products = await fetchData()
 
-    return (
-        <section className="w-full flex flex-col justify-center items-start">
-            <ProductsGallery products={products} />
-        </section>
-    )
+    return <ProductsGallery products={products} />
 }
 
 export default ProductsPage
