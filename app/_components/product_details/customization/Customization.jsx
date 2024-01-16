@@ -10,7 +10,7 @@ const Customization = ({ product, selected, handleFormChange }) => {
             flex-col 
             grow 
             gap-5
-            sm:gap-10
+            sm:gap-6
             items-center 
             px-7 
             rounded-2xl 

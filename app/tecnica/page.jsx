@@ -44,12 +44,12 @@ export default function Tech() {
         show ?
           <section 
             className="
-            flex w-full 
+            flex 
+            w-full 
             mt-4
             sm:mt-0 
             items-center 
             justify-start 
-            sm:justify-center 
             flex-col 
             gap-0
             sm:gap-8

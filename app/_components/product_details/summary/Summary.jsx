@@ -13,6 +13,7 @@ const Summary = ({ product, selected }) => {
   const tech = searchParams.get("tecnica")
   const getTotalBudget = useCallback(getBudget)
   const [total, setTotal] = useState(0)
+  const [finalProduct, setFinalProduct] = useState({})
 
   useEffect(() => {
 
@@ -26,6 +27,12 @@ const Summary = ({ product, selected }) => {
     }
 
     setTotal(getTotalBudget(formatedSelection))
+
+    setFinalProduct({
+      ...formatedSelection,
+      name: product.title,
+      total: getTotalBudget(formatedSelection),
+    })
 
   }, [selected])
 
@@ -80,10 +87,10 @@ const Summary = ({ product, selected }) => {
           </div>
           <div className="flex justify-between pt-3 mt-3 border-t border-slate-300">
             <dt className="font-bold">Total</dt>
-            <dd className="font-bold">$ {total}</dd>
+            <dd className="font-bold">$ {finalProduct.total}</dd>
           </div>
         </dl>
-        <ContactButton />
+        { Object.keys(finalProduct).length !== 0 ? <ContactButton finalProduct={finalProduct} /> : null }
       </div>
     </div>
   )

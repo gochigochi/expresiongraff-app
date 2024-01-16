@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /detalles/
+Disallow: /productos/page.jsx/
+Sitemap: https://expresiongraff.com/sitemap.xml

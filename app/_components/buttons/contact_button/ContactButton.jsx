@@ -1,10 +1,13 @@
 import React from 'react'
 
-const ContactButton = () => {
+const ContactButton = ({ finalProduct }) => {
+
+    const msg = `Hola, te contacto por el presupuesto para ${finalProduct.name} (${finalProduct.tecnica}), con precio final de $${finalProduct.total} por prenda. Id: ${finalProduct.cantidad}-${finalProduct.color}-${finalProduct.ubicacion}-${finalProduct.size}`
+
     return (
         <a
             className="w-full px-2 py-4 bg-lime-400 rounded-full flex flex-row divide-x hover:bg-lime-500 mt-6 transition-colors"
-            href={`https://api.whatsapp.com/send?phone=91170543029&amp;text=Hola.`}
+            href={`https://api.whatsapp.com/send?phone=91170543029&amp;text=${msg}`}
             target="_blank"
             rel="noopener"
         >

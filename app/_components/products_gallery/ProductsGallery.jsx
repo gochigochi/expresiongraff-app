@@ -43,7 +43,6 @@ const ProductsGallery = ({ products, loading }) => {
             mt-4 
             sm:mt-0 
             justify-start 
-            sm:justify-center 
             items-center
             gap-0
             sm:gap-8

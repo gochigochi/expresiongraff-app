@@ -26,7 +26,9 @@ const Card = ({ product, index, setShow, ...props }) => {
             shrink-0 
             basis-[16rem]
             md:basis-[32.9%]
-            my-4
+            mb-4
+            mt-4
+            sm:mt-0
             mr-[0.4rem]
             snap-start
             pl-1

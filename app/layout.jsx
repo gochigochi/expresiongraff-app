@@ -2,7 +2,6 @@ import { Roboto_Flex } from 'next/font/google'
 import Header from './_components/layout/header/Header'
 import './globals.css'
 import Footer from './_components/layout/footer/Footer'
-import Image from 'next/image'
 
 const roboto = Roboto_Flex({
   subsets: ['latin'],
@@ -12,6 +11,9 @@ const roboto = Roboto_Flex({
 export const metadata = {
   title: 'ExpresiónGraff',
   description: 'Calculá tu presupuesto para personalizar tus prendas.',
+  robots: { index: true, follow: true },
+  creator: "diegoui",
+  keywords: "estampado, sublimado, bordado, ropa, logos, marca, industrial, personalizado, buzo, remera, pantalon, gorra"
 }
 
 export default function RootLayout({ children }) {
@@ -23,13 +25,6 @@ export default function RootLayout({ children }) {
       ${roboto.className}
       `}>
         <Header />
-        {/* <Image
-          src="/bg.png"
-          alt=""
-          style={{ "objectFit": "cover", "zIndex": "-1", "opacity": ".4" }}
-          fill
-          priority
-        /> */}
         <main className="flex w-full max-w-screen-xl mx-auto px-5 flex-[1_0_auto]">
           {children}
         </main>

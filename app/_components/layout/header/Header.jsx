@@ -22,7 +22,7 @@ const Header = () => {
             </nav>
             {
                 pathname !== "/" ?
-                    <div className="flex items-center h-14 w-9/12 max-w-4xl mx-auto">
+                    <div className="flex items-center h-16 sm:h-24 w-9/12 max-w-4xl mx-auto">
                         <Stepper />
                     </div> : null
             }
