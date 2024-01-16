@@ -14,8 +14,6 @@ const Summary = ({ product, selected }) => {
   const getTotalBudget = useCallback(getBudget)
   const [total, setTotal] = useState(0)
 
-  console.log(product)
-
   useEffect(() => {
 
     const formatedSelection = {

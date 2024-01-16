@@ -4,6 +4,12 @@
 
 :root {
   --primary-color: #242424;
-
   --text-color: var(var(--primary-color)); 
+}
+
+#three-canvas {
+  height: 100% !important;
+  width: 100% !important;
+  position: relative;
+  z-index: 100;
 }

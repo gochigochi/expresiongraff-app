@@ -1,12 +1,28 @@
 "use client"
 
+import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import LandingButton from './_components/buttons/navigation_buttons/LandingButton'
+import { Canvas } from '@react-three/fiber'
+import { Suspense } from 'react'
+import ShirtModel from './_components/shirt_model/ShirtModel'
+import { OrbitControls, Center, Stage, useProgress } from '@react-three/drei'
+import PageLoader from './_components/loaders/page_loader/PageLoader'
 import useAnimatePresence from './_hooks/useAnimatePresence'
 
 export default function Home() {
 
-  const { show, setShow } = useAnimatePresence()
+  const { setShow } = useAnimatePresence()
+  const [loading, setLoading] = useState(false)
+  const { progress } = useProgress()
+  
+  useEffect(() => {
+    
+    if (progress == 0) setLoading(true)
+
+    if (progress == 100) setLoading(false)
+
+  }, [progress])
 
   return (
     <section className="flex grow">
@@ -14,7 +30,7 @@ export default function Home() {
         <div className="relative bottom-6 sm:bottom-0">
           <AnimatePresence mode='wait'>
             {
-              show ?
+              !loading ?
                 <>
                   <motion.h1
                     key="copy"
@@ -31,9 +47,21 @@ export default function Home() {
           </AnimatePresence>
         </div>
       </div>
-      <div className="absolute sm:relative w-1/2">
-            {/* THREE JS */}
+      <div className="hidden sm:block sm:relative w-1/2">
+        <Canvas id="#three-canvas" camera={{ position: [.2, .4, .8], fov: 75 }}>
+          <OrbitControls />
+          <Suspense fallback={null}>
+            <Stage>
+              <ShirtModel />
+            </Stage>
+          </Suspense>
+        </Canvas>
       </div>
+      <AnimatePresence>
+        {
+          loading ? <PageLoader /> : null
+        }
+      </AnimatePresence>
     </section>
   )
 }

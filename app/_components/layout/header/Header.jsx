@@ -15,8 +15,7 @@ const Header = () => {
             <nav className="flex h-14 max-w-screen-xl justify-between items-center mx-auto mt-2 px-5">
                 <div className="relative w-52 h-12">
                     <Link href="/">
-                        <Image src="/logo.svg" alt="" className="w-auto h-12" fill />
-                        {/* // <img src="/exg-logo.svg" alt="" className="w-auto h-12" /> */}
+                        <Image src="/logo.svg" alt="" className="w-auto h-12" fill priority />
                     </Link>
                 </div>
                 <ContactMenu />
